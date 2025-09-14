@@ -1,7 +1,21 @@
 name: workflow overview
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
+  self_hosted_job:
+    name: self_hosted_job
+    runs-on: self-hosted
+    steps:
+      - name: step in self hosted runner
+        id: self-hosted
+        shell: bash
+        run: 
+          echo this is a multiline comment
+          echo and this job has been executed from self-hosted runner
+      
   a_simple_job:
     name: my simple job name
     runs-on: ubuntu-latest
